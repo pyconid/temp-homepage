@@ -143,6 +143,41 @@
     }
 
     .meta strong { font-weight: 600; color: var(--black); }
+ 
+    .scroll-arrow {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .scroll-arrow span {
+      display: block;
+      width: 18px;
+      height: 18px;
+      border-bottom: 2px solid #000;
+      border-right: 2px solid #000;
+      transform: rotate(45deg);
+      animation: arrowBounce 1.6s infinite;
+    }
+
+    /* subtle stagger glow */
+    .scroll-arrow span::after {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 18px;
+      border-bottom: 2px solid #000;
+      border-right: 2px solid #000;
+      transform: translate(-6px, -6px);
+      opacity: 0.4;
+    }
+
+    @keyframes arrowBounce {
+      0%   { transform: rotate(45deg) translate(0, 0); opacity: 0; }
+      30%  { opacity: 1; }
+      50%  { transform: rotate(45deg) translate(6px, 6px); }
+      100% { transform: rotate(45deg) translate(0, 0); opacity: 0; }
+    }
 
     /* ── Divider ── */
     .divider {
@@ -302,6 +337,9 @@
     <strong>Date</strong> · August 8th – 9th, 2026
   </p>
 
+  <div class="scroll-arrow">
+      <span></span>
+  </div>
   <!-- Divider -->
   <div class="divider"></div>
 
